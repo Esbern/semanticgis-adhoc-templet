@@ -1,0 +1,59 @@
+{
+  "contract_version": "1.0.0",
+  "contract_id": "semanticgis_hub_routing_v1",
+  "purpose": "Define deterministic source-hub routing between semanticgis.dk and semanticgis.org for all project queries.",
+  "hubs": {
+    "semanticgis_dk": {
+      "base_url": "https://semanticgis.dk",
+      "primary_scope": "Danish national and municipal data contracts",
+      "typical_sources": [
+        "Datafordeler registers",
+        "Danish public geodata services",
+        "Danish registry-specific manifests"
+      ]
+    },
+    "semanticgis_org": {
+      "base_url": "https://semanticgis.org",
+      "primary_scope": "International and cross-country data contracts",
+      "typical_sources": [
+        "OpenStreetMap workflows",
+        "Satellite and remote sensing products",
+        "Global basemaps and global reference layers"
+      ]
+    }
+  },
+  "routing_policy": {
+    "default_hub_selection": [
+      {
+        "if_question_scope": "Danish register entity, codebook, or legal semantics",
+        "use_hub": "semanticgis_dk"
+      },
+      {
+        "if_question_scope": "OSM, global imagery, or international reference data",
+        "use_hub": "semanticgis_org"
+      }
+    ],
+    "mixed_source_rule": "A Danish project may combine semanticgis_dk and semanticgis_org in the same pipeline. Hub selection is per source, not per project.",
+    "conflict_resolution": [
+      "Prefer hub-specific canonical contract for the source being used.",
+      "Do not infer service/auth rules from another hub.",
+      "If equivalent contracts exist on both hubs, use the hub matching source jurisdiction."
+    ]
+  },
+  "required_startup_checks": [
+    "selected_hub_per_source",
+    "service_type_confirmed",
+    "auth_mode_confirmed",
+    "geometry_contract_confirmed",
+    "artifact_contract_declared"
+  ],
+  "required_intake_fields": [
+    "question_id",
+    "source_id",
+    "selected_hub",
+    "contract_reference",
+    "service_family",
+    "auth_mode",
+    "planned_artifacts"
+  ]
+}

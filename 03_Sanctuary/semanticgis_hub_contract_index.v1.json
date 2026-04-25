@@ -1,0 +1,60 @@
+{
+  "contract_version": "1.0.0",
+  "contract_id": "semanticgis_hub_contract_index_v1",
+  "purpose": "Deterministic local index for resolving valid machine-readable contract sources on semanticgis.dk and semanticgis.org before any runtime acquisition logic.",
+  "resolution_rule": {
+    "step_1": "Read this local contract index first.",
+    "step_2": "Use local routing and interface contracts to determine hub and contract kind.",
+    "step_3": "Only fetch remote contract endpoints that are explicitly declared in this index or in a previously resolved contract artifact.",
+    "step_4": "If no explicit remote contract endpoint is declared, do not probe website documentation pages; use local contract snapshots or template recommendations."
+  },
+  "hubs": {
+    "semanticgis_dk": {
+      "base_url": "https://semanticgis.dk",
+      "machine_readable_contract_roots": [],
+      "allowed_contract_kinds": [
+        "dataset_capability",
+        "query_execution",
+        "geometry",
+        "auth",
+        "leaf_realisations",
+        "service_manifest"
+      ],
+      "remote_resolution_policy": "fetch_only_if_explicit_contract_url_known"
+    },
+    "semanticgis_org": {
+      "base_url": "https://semanticgis.org",
+      "machine_readable_contract_roots": [],
+      "allowed_contract_kinds": [
+        "dataset_capability",
+        "query_execution",
+        "geometry",
+        "auth",
+        "leaf_realisations",
+        "service_manifest"
+      ],
+      "remote_resolution_policy": "fetch_only_if_explicit_contract_url_known"
+    }
+  },
+  "local_fallback_contracts": {
+    "routing_contract": "03_Sanctuary/semanticgis_hub_routing.contract.v1.json",
+    "interface_contract": "03_Sanctuary/semanticgisdk_interface_contract.v1.md",
+    "intake_template": "03_Sanctuary/intake/query_run_intake.template.json",
+    "artifact_contract_template": "03_Sanctuary/processed/query_artifact_manifest.template.json"
+  },
+  "prohibited_remote_targets": [
+    "README_pages",
+    "manifesto_pages",
+    "bootstrap_manifest_pages",
+    "general_appendix_pages",
+    "narrative_guides_without_contract_marker"
+  ],
+  "required_contract_markers": [
+    "contract_id",
+    "contract_version"
+  ],
+  "notes": [
+    "This index intentionally prefers false-negative remote resolution over speculative probing.",
+    "If hubs later publish stable contract indexes, add those URLs here and treat them as first-class machine-readable entrypoints."
+  ]
+}

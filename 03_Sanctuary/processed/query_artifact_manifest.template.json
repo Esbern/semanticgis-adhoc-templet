@@ -1,0 +1,59 @@
+{
+  "manifest_version": "1.0.0",
+  "artifact_manifest_type": "query_output_contract",
+  "question_id": "replace_with_question_id",
+  "intent_summary": "replace_with_intent_summary",
+  "semantic_refs": {
+    "leaf_ref": "replace_with_leaf_ref",
+    "dataset_ref": "replace_with_dataset_ref",
+    "service_contract_ref": "replace_with_service_contract_ref"
+  },
+  "execution_contract": {
+    "service_family": "graphql|wms|wmts|wfs|filedownload",
+    "endpoint": "replace_with_endpoint",
+    "auth_mode": "apikey_query_param|token_query_param|other",
+    "temporal_parameters": {
+      "required": [],
+      "provided": {}
+    },
+    "pagination": {
+      "style": "cursor|page|none",
+      "page_size": 0,
+      "cursor_field": ""
+    }
+  },
+  "geometry_contract": {
+    "entity": "replace_with_entity",
+    "geometry_field_path": "replace_with_field_path",
+    "geometry_encoding": "WKT|GeoJSON|other",
+    "source_crs": "replace_with_source_crs",
+    "target_crs": "replace_with_target_crs",
+    "transform_applied": false,
+    "transform_method": ""
+  },
+  "artifacts": [
+    {
+      "artifact_name": "results_json",
+      "artifact_type": "json",
+      "path": "05_Outputs/results.json",
+      "schema_hint": "summary_metrics"
+    },
+    {
+      "artifact_name": "map_overlay_geojson",
+      "artifact_type": "geojson",
+      "path": "00_Binary/derived/overlay.geojson",
+      "schema_hint": "feature_collection"
+    },
+    {
+      "artifact_name": "webmap_html",
+      "artifact_type": "html",
+      "path": "05_Outputs/webmap.html",
+      "schema_hint": "interactive_map"
+    }
+  ],
+  "validation": {
+    "sanity_metrics": {},
+    "status": "planned|executed|failed",
+    "notes": ""
+  }
+}

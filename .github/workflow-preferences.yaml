@@ -1,0 +1,124 @@
+# Repository-level workflow preferences for agents.
+# Keep this file small and explicit. Values here are defaults, not hard policy,
+# unless they repeat a Required rule from instruction files.
+
+python:
+  require_local_environment: true
+  default_manager: venv
+  manager_priority:
+    - venv
+    - micromamba
+    - conda
+  gis_manager_priority:
+    - micromamba
+    - conda
+    - venv
+  environment_name: my-project
+  venv_path: .venv
+  decision_log_file: Design_Rationale.md
+
+osm:
+  preferred_fetch_library: osmnx
+  fallback_fetch_method: overpass_raw_last_resort
+  allow_manual_endpoint_override: false
+  require_osmnx_first: true
+  overpass_raw_last_resort_only: true
+  require_osmnx_failure_evidence_for_fallback: true
+  require_design_rationale_log_for_osm_fallback: true
+  osmnx_min_attempts_before_fallback: 2
+  osmnx_retry_on_429: true
+  osmnx_retry_backoff_seconds: [5, 15]
+
+scripts:
+  default_folder: 10_scripts
+  document_logic_in_design_rationale: true
+  allow_one_off_scripts_outside_default_folder: true
+  default_execution_mode: phase_gated
+  require_user_confirmation_between_stages: true
+  allow_full_pipeline_only_on_explicit_request: true
+
+logging:
+  default_mode: verbose
+  allow_quiet_mode: true
+  allow_file_logging: true
+  default_log_dir: .cache/logs
+  recommend_structured_logging: true
+
+data_flow:
+  default_lifecycle: acquire_document_sanitize_document_approve_analyze_document_approve_visualize
+  require_checkpoint_after_each_stage: true
+  allow_lifecycle_deviation_with_rationale: true
+  checkpoint_required_fields:
+    - stage_name
+    - status
+    - outputs
+    - sanity_metrics
+    - next_expected_input
+    - notes_for_user_validation
+  checkpoint_output_formats:
+    - plain_text
+    - table
+    - json
+    - yaml
+    - structured_logs
+
+knowledge_hubs:
+  default_danish_contract_hub: semanticgis.dk
+  default_global_contract_hub: semanticgis.org
+  allow_multi_hub_in_single_project: true
+  require_machine_readable_contract_first: true
+  allow_local_fallback_if_contract_unavailable: true
+  allow_exploratory_alternative_if_no_contract_solution: true
+  require_explicit_rationale_when_contract_unavailable: true
+  require_contract_resolution_log: true
+  contract_resolution_log_file: Design_Rationale.md
+  machine_readable_contract_priority:
+    - website_machine_readable
+    - local_contract_snapshot
+    - local_template_recommendations
+    - exploratory_alternative
+  website_machine_readable_entrypoints:
+    local_hub_contract_index: 03_Sanctuary/semanticgis_hub_contract_index.v1.json
+    routing_contract: 03_Sanctuary/semanticgis_hub_routing.contract.v1.json
+    interface_contract: 03_Sanctuary/semanticgisdk_interface_contract.v1.md
+  prohibited_as_machine_readable_contract:
+    - README_pages
+    - manifesto_pages
+    - bootstrap_manifest_pages
+    - general_appendix_pages
+  route_by_source_type:
+    danish_registers: semanticgis.dk
+    datafordeler_services: semanticgis.dk
+    osm: semanticgis.org
+    satellite_imagery: semanticgis.org
+    global_reference_layers: semanticgis.org
+
+geometry:
+  require_geometry_mode_declaration: true
+  require_human_review_for_geometry_mode_selection: true
+  require_geometry_options_summary_from_contract: true
+  geometry_options_output_format: recommendation_table
+  allow_alternative_geometry_mode_if_contract_missing: true
+  require_rationale_for_geometry_deviation: true
+
+dataset_selection:
+  require_leaf_realisations_discovery: true
+  require_contract_backed_realisations_first: true
+  allow_assumption_derived_candidates: true
+  require_label_for_assumption_derived_candidates: true
+  require_human_decision_when_multiple_realisations: true
+  allow_policy_profile_auto_selection: true
+  default_policy_profile: balanced_contract_first
+  require_selection_rationale_log: true
+  selection_rationale_log_file: Design_Rationale.md
+  policy_profiles:
+    balanced_contract_first:
+      description: Present alternatives and request human selection.
+      auto_select: false
+    municipality_grunddata_first:
+      description: Prefer Grunddataprogrammet-derived realisations when available.
+      auto_select: true
+      prefer_collections:
+        - Grunddataprogrammet
+      still_report_alternatives: true
+      allow_user_override: true

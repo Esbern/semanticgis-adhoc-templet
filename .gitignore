@@ -1,0 +1,30 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Package caches (OSMnx, raster tiles, etc.)
+.cache/*
+# Keep folder structure tracked
+!.cache/.keep
+# OSMnx creates cache/ (no dot) by default — catch it as a safety net
+cache/
+
+# Logs / local runtime
+*.log
+
+# OS
+.DS_Store
+
+# Binary data root stays local (sandboxed in-project but not committed)
+00_Binary/**
+# Unignore directory skeleton so placeholder files can be tracked
+!00_Binary/
+!00_Binary/raw/
+!00_Binary/staging/
+!00_Binary/derived/
+# Keep folder scaffolding tracked
+!00_Binary/**/.keep
