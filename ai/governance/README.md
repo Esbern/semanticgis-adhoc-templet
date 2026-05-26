@@ -23,7 +23,6 @@ Local override is allowed only when explicitly user-approved and logged in `Desi
 - `instructions/`: domain-specific operational packs
 - `workflow-preferences.yaml`: tunable defaults
 
-## Compatibility
+## Adapters
 
 - `copilot-instructions.md`, `CLAUDE.md`, and `GEMINI.md` are thin adapters.
-- `.github/instructions/` and `.github/workflow-preferences.yaml` are compatibility mirrors during migration.

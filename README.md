@@ -5,7 +5,8 @@ This repository is a lightweight template designed for students and ad-hoc GIS w
 ## Included Scaffold
 
 - `README.md`
-- `copilot-instructions.md` — The AI instructions that enforce SemanticGIS routing and Data Genesis logging
+- `ai/governance/` — Canonical AI governance, instruction packs, and workflow defaults
+- `copilot-instructions.md`, `CLAUDE.md`, `GEMINI.md` — Thin AI-specific adapters to the canonical governance
 - `.gitignore`
 - `.env.example`
 - `data/`
@@ -26,13 +27,13 @@ This template is built for **agile, ad-hoc agentic AI-assisted GIS work**.
 
 1. Create a new repository from this template.
 2. Copy `.env.example` to `.env` and fill local values.
-3. Open the project in an AI-enabled editor (Cursor, VS Code with Copilot, etc.).
+3. Open the project in an AI-enabled editor or assistant environment.
 4. Start a chat with the AI, pasting the Onboarding Prompt below.
 5. Ask the AI to start a new job in the `jobs/` directory.
 
 ### Onboarding Prompt (paste this first)
 
-> Please read `copilot-instructions.md` and `README.md` thoroughly. Ensure you understand the Data Genesis (`-dg.md`) protocol, the human-in-the-loop workflow, and how you must use the SemanticGIS indexes. Acknowledge that you are ready to start.
+> Please read `ai/governance/root-policy.md`, the relevant adapter file for your assistant, and `README.md` thoroughly. Ensure you understand the Data Genesis (`-dg.md`) protocol, the human-in-the-loop workflow, and how you must use the SemanticGIS indexes. Acknowledge that you are ready to start.
 
 ### Example Human-in-the-Loop Workflow
 

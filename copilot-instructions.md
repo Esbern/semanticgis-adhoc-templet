@@ -17,6 +17,6 @@ Allow local override only when all are true:
 2. Reason, scope, and rollback criteria are logged in `Design_Rationale.md`.
 3. Override scope is limited to the current task/job unless the user explicitly broadens it.
 
-## Compatibility note
+## Scope note
 
-`.github/instructions/` and `.github/workflow-preferences.yaml` are compatibility mirrors during migration.
+This file is a Copilot adapter only. Canonical governance lives in `ai/governance/`.

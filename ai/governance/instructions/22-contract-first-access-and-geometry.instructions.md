@@ -8,7 +8,7 @@ applyTo: "**/*.{py,ipynb,md,yml,yaml,json}"
 Required
 - Read machine-readable contract sources from `semanticgis.dk` or `semanticgis.org` first.
 - Resolve dataset access strategy from machine-readable contract sources first.
-- Use source-type hub routing from `.github/workflow-preferences.yaml` when selecting between `semanticgis.dk` and `semanticgis.org`.
+- Use source-type hub routing from `ai/governance/workflow-preferences.yaml` when selecting between `semanticgis.dk` and `semanticgis.org`.
 - Use declared contract entrypoints and explicit contract artifacts first; do not substitute human-oriented hub pages.
 - If website contract cannot be resolved:
   - use a repo-local contract snapshot if present

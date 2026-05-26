@@ -10,4 +10,4 @@ Recommended
 - Keep rationale compact: context, reason for deviation, and expected consequence.
 
 Required
-- Do not violate hard governance constraints from `copilot-instructions.md` when deviating from recommendations.
+- Do not violate hard governance constraints from `ai/governance/root-policy.md` when deviating from recommendations.

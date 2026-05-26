@@ -6,7 +6,7 @@ applyTo: "**/*.{py,sh,sql,md,yml,yaml}"
 # Script Location And Rationale
 
 Recommended
-- Save reusable project scripts in the configured script folder from `.github/workflow-preferences.yaml`.
+- Save reusable project scripts in the configured script folder from `ai/governance/workflow-preferences.yaml`.
 - Use a clear filename that signals purpose, for example `fetch_osm_data.py` or `build_network_graph.py`.
 - Use domain-separated script names for major workflows:
 	- acquisition stage (for example `fetch_*.py`)

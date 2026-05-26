@@ -26,7 +26,7 @@ Recommendation table (minimum columns)
 Decision flow
 1. Discover contract-backed candidates.
 2. Add assumption-derived candidates only if helpful and clearly labeled.
-3. Apply policy profile from `.github/workflow-preferences.yaml`.
+3. Apply policy profile from `ai/governance/workflow-preferences.yaml`.
 4. If profile is human-first, request user decision unless the user already made that decision explicitly.
 5. If profile is auto-select, apply profile rule, report skipped alternatives, and allow override.
 

@@ -12,7 +12,7 @@ Required
 Recommended
 - Default to lightweight `.venv` for general tasks.
 - For recurring GIS-heavy workflows, prefer `micromamba` or `conda` when available.
-- Let the agent choose the best manager within repository preferences in `.github/workflow-preferences.yaml`.
+- Let the agent choose the best manager within repository preferences in `ai/governance/workflow-preferences.yaml`.
 - Keep dependency installation scoped to the selected local environment.
 - Record environment decisions in `Design_Rationale.md` when they materially affect reproducibility.
 

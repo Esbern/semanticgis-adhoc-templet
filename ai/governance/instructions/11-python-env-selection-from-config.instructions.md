@@ -6,7 +6,7 @@ applyTo: "**/*.{py,ipynb,md,yml,yaml}"
 # Python Environment Selection From Config
 
 Recommended
-- Read `.github/workflow-preferences.yaml` before selecting a Python environment manager.
+- Read `ai/governance/workflow-preferences.yaml` before selecting a Python environment manager.
 - Use `python.default_manager` as the default selection for non-GIS tasks.
 - For GIS-heavy tasks, prefer `python.gis_manager_priority` in order.
 
