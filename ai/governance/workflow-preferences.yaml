@@ -1,6 +1,6 @@
-# Compatibility mirror of ai/governance/workflow-preferences.yaml.
-# Canonical source of truth: ai/governance/workflow-preferences.yaml.
-# Keep this file in sync only for environments that still load from .github.
+# Repository-level workflow preferences for agents.
+# Keep this file small and explicit. Values here are defaults, not hard policy,
+# unless they repeat a Required rule from instruction files.
 
 python:
   require_local_environment: true

@@ -1,16 +1,18 @@
-# Modular Workflow Recommendations
+# Modular Workflow Recommendations (Compatibility Mirror)
 
-This folder lets template users add workflow recommendations without modifying the root `copilot-instructions.md`.
+This folder is a compatibility mirror during migration.
+
+Canonical source: `ai/governance/instructions/`
 
 ## Design intent
 
-- Keep `copilot-instructions.md` focused on non-negotiable governance and safety rules.
-- Put tool and method preferences in small, replaceable `*.instructions.md` files.
+- Keep adapter files focused on load order and guardrails.
+- Keep tool and method preferences in canonical `ai/governance/instructions/*.instructions.md` files.
 - Treat recommendations as defaults, not hard locks, unless explicitly marked as required.
 
 ## How to add a recommendation pack
 
-1. Create a new file in this folder, e.g. `30-your-topic.instructions.md`.
+1. Create or update files in `ai/governance/instructions/`, not this mirror.
 2. Add YAML frontmatter with `description` and `applyTo`.
 3. Use concise language and priority levels:
    - `Required`: hard constraints.
@@ -34,7 +36,9 @@ applyTo: "**/*"
 
 ## Repository Preferences File
 
-Use `.github/workflow-preferences.yaml` for organization-level defaults (for example Python manager priority, GIS-specific preference, and OSM retrieval defaults).
+Canonical defaults live in `ai/governance/workflow-preferences.yaml`.
+
+Use `.github/workflow-preferences.yaml` as a compatibility mirror only.
 
 - Keep hard constraints in instruction files (`Required`).
 - Keep tunable defaults in the preferences YAML.
